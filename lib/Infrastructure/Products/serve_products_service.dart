@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:product_tracker_app/Application/Models/Failure.dart';
+import 'package:product_tracker_app/Application/models/failure.dart';
 import 'package:product_tracker_app/Domain/Models/Products/Product.dart';
-import 'package:product_tracker_app/Infrastructure/Models/BasicGetRequest.dart';
+import 'package:product_tracker_app/Infrastructure/Models/basic_get_request.dart';
 
 class ServeProductService {
   Future<Either<Failure, List<Product>>> getProducts() async {

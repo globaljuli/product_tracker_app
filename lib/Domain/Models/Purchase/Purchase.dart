@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:product_tracker_app/Domain/Models/Products/Product.dart';
 

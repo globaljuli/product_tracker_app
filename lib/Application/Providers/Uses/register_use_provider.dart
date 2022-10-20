@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:product_tracker_app/Domain/Models/Uses/ProductUse.dart';
-import 'package:product_tracker_app/Domain/Models/Uses/ProductUseRegister.dart';
-import 'package:product_tracker_app/Infrastructure/Uses/RegisterUseService.dart';
+import 'package:product_tracker_app/Domain/Models/Uses/product_use.dart';
+import 'package:product_tracker_app/Domain/Models/Uses/product_use_register.dart';
+import 'package:product_tracker_app/Infrastructure/Uses/register_use_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterUseProvider with ChangeNotifier {
