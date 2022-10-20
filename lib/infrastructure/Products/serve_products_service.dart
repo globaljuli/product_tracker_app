@@ -1,16 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:product_tracker_app/application/models/failure.dart';
 import 'package:product_tracker_app/Domain/Models/Products/product.dart';
-import 'package:product_tracker_app/Domain/Models/Purchase/purchase.dart';
-import 'package:product_tracker_app/Infrastructure/Models/basic_get_request.dart';
+import 'package:product_tracker_app/infrastructure/Models/basic_get_request.dart';
 
-class ServePurchasesService {
-  Future<Either<Failure, List<Product>>> getPurchasesInfo() async {
+class ServeProductService {
+  Future<Either<Failure, List<Product>>> getProducts() async {
     final res = await BasicGetRequest.make(
-        path: 'purchases',
+        path: 'products',
         onResolveOk: (response) {
           final List<Product> products = [];
-          for (var product in response['response']) {
+          for (var product in response['products']) {
             products.add(Product.fromJson(product));
           }
           return Right(products);
@@ -22,17 +21,16 @@ class ServePurchasesService {
     );
   }
 
-  Future<Either<Failure, Purchase>> getPurchaseInfo(
-      {required int purchaseId}) async {
+  Future<Either<Failure, Product>> getProduct({required int productId}) async {
     final res = await BasicGetRequest.make(
-        path: 'purchase/$purchaseId',
+        path: 'product/$productId',
         onResolveOk: (response) {
-          return Purchase.fromJson(response['response']);
+          return Right(Product.fromJson(response));
         });
 
     return res.fold(
       (l) => Left(l),
-      (r) => Right(r as Purchase),
+      (r) => Right(r as Product),
     );
   }
 }

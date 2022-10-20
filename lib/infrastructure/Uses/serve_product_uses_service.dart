@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:product_tracker_app/Domain/Models/Uses/product_use.dart';
-import 'package:product_tracker_app/Infrastructure/Models/basic_get_request.dart';
+import 'package:product_tracker_app/domain/models/uses/product_use.dart';
+import 'package:product_tracker_app/infrastructure/Models/basic_get_request.dart';
 
 class ServeProductUsesService {
   Future<List<ProductUse>> getProductUses({required int productId}) async {
