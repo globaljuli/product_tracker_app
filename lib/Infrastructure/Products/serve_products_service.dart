@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:product_tracker_app/Application/models/failure.dart';
-import 'package:product_tracker_app/Domain/Models/Products/Product.dart';
+import 'package:product_tracker_app/application/models/failure.dart';
+import 'package:product_tracker_app/Domain/Models/Products/product.dart';
 import 'package:product_tracker_app/Infrastructure/Models/basic_get_request.dart';
 
 class ServeProductService {

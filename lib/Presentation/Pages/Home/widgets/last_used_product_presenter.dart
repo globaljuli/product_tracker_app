@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:product_tracker_app/Application/Providers/Uses/last_used_purchase_provider.dart';
+import 'package:product_tracker_app/application/providers/uses/last_used_purchase_provider.dart';
 import 'package:provider/provider.dart';
 
 class LastUsedProductPresenter extends StatelessWidget {

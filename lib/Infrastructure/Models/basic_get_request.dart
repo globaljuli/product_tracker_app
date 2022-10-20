@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
-import 'package:product_tracker_app/Application/models/failure.dart';
+import 'package:product_tracker_app/application/models/failure.dart';
 import 'package:product_tracker_app/config.dart';
 
 class BasicGetRequest {
