@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:product_tracker_app/application/providers/uses/last_used_purchase_provider.dart';
 import 'package:product_tracker_app/application/providers/uses/register_use_provider.dart';
 import 'package:provider/provider.dart';
 
