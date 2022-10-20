@@ -8,14 +8,14 @@ class BasicGetRequest {
   static Future<Either<Failure, dynamic>> make(
       {required String path,
       Function(Map<String, dynamic>)? onResolveOk}) async {
-    final res = await http.get(
-      Uri.parse(Config.kUrl + path),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    );
-
     try {
+      final res = await http.get(
+        Uri.parse(Config.kUrl + path),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      );
+
       Map<String, dynamic> response = json.decode(res.body);
 
       if (onResolveOk == null) {

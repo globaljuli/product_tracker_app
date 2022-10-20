@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:product_tracker_app/Application/Providers/Uses/register_use_provider.dart';
 import 'package:product_tracker_app/Presentation/Pages/Home/widgets/LastUsedProductPresenter.dart';
 import 'package:product_tracker_app/Presentation/Pages/Home/widgets/RegisterUseButton.dart';
+import 'package:product_tracker_app/Presentation/Pages/Home/widgets/uses_historic_presenter.dart';
 
 class HomePage extends StatelessWidget {
   final String title;
@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
           children: const [
             LastUsedProductPresenter(),
             RegisterUseButton(),
+            UsesHistoricPresenter(),
           ],
         ),
       ),

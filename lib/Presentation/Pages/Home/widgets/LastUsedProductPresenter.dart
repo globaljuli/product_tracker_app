@@ -36,6 +36,10 @@ class LastUsedProductPresenter extends StatelessWidget {
             );
           }
 
+          if (lastProductProvider.purchase == null) {
+            return Text("There's no purchases to show");
+          }
+
           return Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
