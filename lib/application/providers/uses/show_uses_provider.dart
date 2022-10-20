@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:product_tracker_app/Application/helpers/serve_uses/serve_uses_helper.dart';
-import 'package:product_tracker_app/Domain/Models/Uses/product_use.dart';
+import 'package:flutter/material.dart';
+import 'package:product_tracker_app/application/helpers/serve_uses/serve_uses_helper.dart';
+import 'package:product_tracker_app/domain/models/uses/product_use.dart';
 
 class ShowUsesProvider with ChangeNotifier {
   ShowUsesProvider() {
