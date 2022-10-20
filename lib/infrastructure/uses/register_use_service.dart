@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:product_tracker_app/application/models/failure.dart';
-import 'package:product_tracker_app/Domain/Models/Uses/product_use.dart';
-import 'package:product_tracker_app/Domain/Models/Uses/product_use_register.dart';
-import 'package:product_tracker_app/Infrastructure/Models/basic_post_request.dart';
+import 'package:product_tracker_app/domain/models/uses/product_use.dart';
+import 'package:product_tracker_app/domain/models/uses/product_use_register.dart';
+import 'package:product_tracker_app/infrastructure/models/basic_post_request.dart';
 
 class RegisterUseService {
   Future<Either<Failure, ProductUse>> registerUse(

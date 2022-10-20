@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:product_tracker_app/Presentation/Pages/Home/home_page.dart';
+import 'package:product_tracker_app/presentation/pages/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());

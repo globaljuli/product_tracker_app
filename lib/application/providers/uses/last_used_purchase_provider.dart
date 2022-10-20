@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:product_tracker_app/Domain/Models/Products/Product.dart';
-import 'package:product_tracker_app/Domain/Models/Purchase/Purchase.dart';
-import 'package:product_tracker_app/Infrastructure/Purchase/serve_purchases_service.dart';
+import 'package:product_tracker_app/domain/models/purchase/purchase.dart';
+import 'package:product_tracker_app/infrastructure/purchase/serve_purchases_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LastUsedPurchaseProvider with ChangeNotifier {

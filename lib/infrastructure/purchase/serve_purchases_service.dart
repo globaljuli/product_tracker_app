@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:product_tracker_app/application/models/failure.dart';
-import 'package:product_tracker_app/Domain/Models/Products/product.dart';
-import 'package:product_tracker_app/Domain/Models/Purchase/purchase.dart';
-import 'package:product_tracker_app/Infrastructure/Models/basic_get_request.dart';
+import 'package:product_tracker_app/domain/models/products/product.dart';
+import 'package:product_tracker_app/domain/models/purchase/purchase.dart';
+import 'package:product_tracker_app/infrastructure/models/basic_get_request.dart';
 
 class ServePurchasesService {
   Future<Either<Failure, List<Product>>> getPurchasesInfo() async {

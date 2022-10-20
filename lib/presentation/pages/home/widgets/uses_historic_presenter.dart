@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:product_tracker_app/Application/Providers/Uses/show_uses_provider.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:product_tracker_app/application/providers/uses/show_uses_provider.dart';
 
 class UsesHistoricPresenter extends StatelessWidget {
   const UsesHistoricPresenter({Key? key}) : super(key: key);
