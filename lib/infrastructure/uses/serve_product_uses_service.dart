@@ -1,19 +1,19 @@
-import 'package:dartz/dartz.dart';
-import 'package:product_tracker_app/domain/models/uses/product_use.dart';
+import 'package:product_tracker_app/domain/models/uses/purchase_use.dart';
 import 'package:product_tracker_app/infrastructure/models/basic_get_request.dart';
 
 class ServeProductUsesService {
-  Future<List<ProductUse>> getProductUses({required int productId}) async {
+  Future<List<PurchaseUse>> getPurchaseUses({required int purchaseId}) async {
     try {
       final res = await BasicGetRequest.make(
-          path: 'uses/$productId',
+          path: 'uses/$purchaseId',
           onResolveOk: (response) {
-            final uses = List<ProductUse>.from(response['uses']);
-            return Right(uses);
+            print(response);
+            final List uses = response['data'];
+            return uses.map((e) => PurchaseUse.fromJson(e)).toList();
           });
 
       return res.fold(
-        (l) => getMockUses(),
+        (l) => [],
         (r) => r,
       );
     } catch (e) {
@@ -21,30 +21,30 @@ class ServeProductUsesService {
     }
   }
 
-  List<ProductUse> getMockUses() {
+  List<PurchaseUse> getMockUses() {
     return [
-      ProductUse(
+      PurchaseUse(
           id: 1,
           purchaseId: 2,
           purchaseName: 'Xiaomi',
           useTypeId: 1,
           createdAt: DateTime.now(),
           updatedAt: DateTime.now()),
-      ProductUse(
+      PurchaseUse(
           id: 2,
           purchaseId: 2,
           purchaseName: 'Xiaomi',
           useTypeId: 1,
           createdAt: DateTime.now(),
           updatedAt: DateTime.now()),
-      ProductUse(
+      PurchaseUse(
           id: 3,
           purchaseId: 2,
           purchaseName: 'Xiaomi',
           useTypeId: 1,
           createdAt: DateTime.now(),
           updatedAt: DateTime.now()),
-      ProductUse(
+      PurchaseUse(
           id: 4,
           purchaseId: 2,
           purchaseName: 'Xiaomi',

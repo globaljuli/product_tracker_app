@@ -1,9 +1,9 @@
-import 'package:product_tracker_app/domain/models/uses/product_use.dart';
+import 'package:product_tracker_app/domain/models/uses/purchase_use.dart';
 import 'package:product_tracker_app/infrastructure/uses/serve_product_uses_service.dart';
 
 class ServeUsesHelper {
-  Future<List<ProductUse>> getUses() async {
+  Future<List<PurchaseUse>> getUses({required int purchaseId}) async {
     final service = ServeProductUsesService();
-    return await service.getProductUses(productId: 1);
+    return await service.getPurchaseUses(purchaseId: purchaseId);
   }
 }

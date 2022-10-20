@@ -18,15 +18,14 @@ class BasicGetRequest {
 
       Map<String, dynamic> response = json.decode(res.body);
 
-      if (onResolveOk == null) {
-        return Right(response);
-      }
+      if (res.statusCode == 200) {
+        if (onResolveOk == null) {
+          return Right(response);
+        }
 
-      if (response['ok']) {
         return Right(onResolveOk(response));
-      } else {
-        return Left(Failure(message: response['message']));
       }
+      return Left(Failure(message: response['message']));
     } catch ($e) {
       return Left(Failure(message: $e.toString()));
     }

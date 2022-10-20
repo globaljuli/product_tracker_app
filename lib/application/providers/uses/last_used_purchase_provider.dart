@@ -33,6 +33,7 @@ class LastUsedPurchaseProvider with ChangeNotifier {
       : 'Last used product: $lastPurchaseSubmitted';
 
   void _getLastSubmittedPurchase() async {
+    purchase = null;
     loading = true;
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();

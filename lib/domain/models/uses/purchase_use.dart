@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 
-class ProductUse {
-  ProductUse({
+class PurchaseUse {
+  PurchaseUse({
     required this.id,
     required this.purchaseId,
     required this.purchaseName,
@@ -19,12 +19,12 @@ class ProductUse {
   final DateTime createdAt;
   final DateTime updatedAt;
 
-  factory ProductUse.fromRawJson(String str) =>
-      ProductUse.fromJson(json.decode(str));
+  factory PurchaseUse.fromRawJson(String str) =>
+      PurchaseUse.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory ProductUse.fromJson(Map<String, dynamic> json) => ProductUse(
+  factory PurchaseUse.fromJson(Map<String, dynamic> json) => PurchaseUse(
         id: json["id"],
         purchaseId: json["purchase_id"],
         purchaseName: json["purchase_name"] ?? '',
