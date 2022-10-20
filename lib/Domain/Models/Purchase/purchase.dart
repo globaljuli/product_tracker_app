@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:product_tracker_app/Domain/Models/Products/Product.dart';
+import 'package:product_tracker_app/Domain/Models/Products/product.dart'
 
 class Purchase {
   Purchase({
