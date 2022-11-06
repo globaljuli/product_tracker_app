@@ -6,7 +6,7 @@ class PurchasePresenter extends StatelessWidget {
     Key? key,
     required this.purchase,
     required this.onTap,
-    this.height = 100,
+    this.height = 90,
   }) : super(key: key);
   final Purchase purchase;
   final Function onTap;

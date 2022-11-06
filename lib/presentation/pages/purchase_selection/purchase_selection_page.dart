@@ -37,7 +37,7 @@ class PurchaseSelectionPage extends StatelessWidget {
                       return provider
                           .selectPurchase(purchase: purchases[index])
                           .then(
-                            (value) => Navigator.pushNamed(
+                            (value) => Navigator.pushReplacementNamed(
                               context,
                               purchasePage,
                               arguments: purchases[index].id,

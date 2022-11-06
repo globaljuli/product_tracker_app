@@ -13,9 +13,17 @@ class UsesHistoricPresenter extends StatelessWidget {
       create: (context) => ShowUsesProvider(purchaseId: purchaseId),
       child: Consumer<ShowUsesProvider>(
         builder: (context, _sup, child) {
+          if (_sup.productUses.isEmpty) {
+            return Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 64.0),
+              child: Text("There are no uses for this purchase"),
+            );
+          }
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Divider(thickness: 1.0),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 4.0, vertical: 24.0),
@@ -29,8 +37,8 @@ class UsesHistoricPresenter extends StatelessWidget {
               Table(
                 children: _sup.productUses.map((e) {
                   return TableRow(children: [
-                    Text(DateFormat.yMMMEd().format(e.createdAt)),
-                    Text(e.purchaseName),
+                    Text(DateFormat.yMMMMd().format(e.createdAt)),
+                    Text('${e.product.brand} - ${e.product.name}'),
                   ]);
                 }).toList(),
               ),

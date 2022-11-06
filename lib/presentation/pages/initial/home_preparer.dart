@@ -13,14 +13,15 @@ class _HomePreparerState extends State<HomePreparer> {
   @override
   void initState() {
     SharedPreferences.getInstance().then((prefs) {
-      return Navigator.pushReplacementNamed(context, purchaseSelectionPage);
-
       final lastPurchaseId = prefs.getInt('last_used_purchase_id');
       if (lastPurchaseId == null) {
         return Navigator.pushReplacementNamed(context, purchaseSelectionPage);
       }
-      return Navigator.pushReplacementNamed(context, purchasePage,
-          arguments: lastPurchaseId);
+      return Navigator.pushReplacementNamed(
+        context,
+        purchasePage,
+        arguments: lastPurchaseId,
+      );
     });
     super.initState();
   }
