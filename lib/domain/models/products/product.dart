@@ -5,6 +5,7 @@ class Product {
     required this.id,
     required this.name,
     required this.description,
+    required this.brand,
     required this.imagePath,
     required this.productCategoryId,
     required this.createdAt,
@@ -14,6 +15,7 @@ class Product {
   final int id;
   final String name;
   final String description;
+  final String brand;
   final dynamic imagePath;
   final int productCategoryId;
   final DateTime createdAt;
@@ -27,6 +29,7 @@ class Product {
         id: json["id"],
         name: json["name"],
         description: json["description"],
+        brand: json["brand"],
         imagePath: json["image_path"],
         productCategoryId: json["product_category_id"],
         createdAt: DateTime.parse(json["created_at"]),
@@ -37,6 +40,7 @@ class Product {
         "id": id,
         "name": name,
         "description": description,
+        "brand": brand,
         "image_path": imagePath,
         "product_category_id": productCategoryId,
         "created_at": createdAt.toIso8601String(),

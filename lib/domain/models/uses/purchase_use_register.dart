@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-class ProductUseRegister {
-  ProductUseRegister({
+class PurchaseUseRegister {
+  PurchaseUseRegister({
     required this.purchaseId,
     required this.useTypeId,
   });

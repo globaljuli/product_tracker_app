@@ -1,24 +1,23 @@
 import 'package:dartz/dartz.dart';
 import 'package:product_tracker_app/application/models/failure.dart';
-import 'package:product_tracker_app/domain/models/products/product.dart';
 import 'package:product_tracker_app/domain/models/purchase/purchase.dart';
 import 'package:product_tracker_app/infrastructure/models/basic_get_request.dart';
 
 class ServePurchasesService {
-  Future<Either<Failure, List<Product>>> getPurchasesInfo() async {
+  Future<Either<Failure, List<Purchase>>> getPurchasesInfo() async {
     final res = await BasicGetRequest.make(
         path: 'purchases',
         onResolveOk: (response) {
-          final List<Product> products = [];
-          for (var product in response['response']) {
-            products.add(Product.fromJson(product));
+          final List<Purchase> purchases = [];
+          for (var purchase in response['response']) {
+            purchases.add(Purchase.fromJson(purchase));
           }
-          return Right(products);
+          return purchases;
         });
 
     return res.fold(
       (l) => Left(l),
-      (r) => Right(r as List<Product>),
+      (r) => Right(r as List<Purchase>),
     );
   }
 

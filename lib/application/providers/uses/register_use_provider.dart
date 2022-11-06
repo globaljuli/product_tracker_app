@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:product_tracker_app/domain/models/uses/product_use_register.dart';
+import 'package:product_tracker_app/domain/models/uses/purchase_use_register.dart';
 import 'package:product_tracker_app/infrastructure/uses/register_use_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -62,7 +62,7 @@ class RegisterUseProvider with ChangeNotifier {
       return;
     }
 
-    final ps = ProductUseRegister(
+    final ps = PurchaseUseRegister(
       purchaseId: lastPurchaseSubmitted,
       useTypeId: useTypeId.toInt(),
     );

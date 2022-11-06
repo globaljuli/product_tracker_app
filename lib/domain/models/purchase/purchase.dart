@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:product_tracker_app/Domain/Models/Products/product.dart';
+import 'package:product_tracker_app/domain/models/shops/shop.dart';
 
 class Purchase {
   Purchase({
@@ -13,8 +14,11 @@ class Purchase {
     required this.createdAt,
     required this.updatedAt,
     required this.product,
+    required this.shop,
     required this.uses,
-  });
+  }) {
+    pricePerUse = (uses != 0) ? (price / uses).toStringAsFixed(2) : '∞';
+  }
 
   final int id;
   final int productId;
@@ -25,7 +29,9 @@ class Purchase {
   final DateTime createdAt;
   final DateTime updatedAt;
   final Product product;
+  final Shop shop;
   final int uses;
+  late String pricePerUse;
 
   factory Purchase.fromRawJson(String str) =>
       Purchase.fromJson(json.decode(str));
@@ -42,6 +48,7 @@ class Purchase {
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
         product: Product.fromJson(json["product"]),
+        shop: Shop.fromJson(json["shop"]),
         uses: json["uses"],
       );
 
@@ -55,6 +62,7 @@ class Purchase {
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
         "product": product.toJson(),
+        "shop": shop.toJson(),
         "uses": uses,
       };
 }

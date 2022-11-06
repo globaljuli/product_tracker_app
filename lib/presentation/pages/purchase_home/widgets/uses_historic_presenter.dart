@@ -5,14 +5,10 @@ import 'package:product_tracker_app/application/providers/uses/show_uses_provide
 
 class UsesHistoricPresenter extends StatelessWidget {
   const UsesHistoricPresenter({required this.purchaseId});
-  final int? purchaseId;
+  final int purchaseId;
 
   @override
   Widget build(BuildContext context) {
-    print("PC: ${purchaseId}");
-    if (purchaseId == null) {
-      return Text("No uses registered yet");
-    }
     return ChangeNotifierProvider<ShowUsesProvider>(
       create: (context) => ShowUsesProvider(purchaseId: purchaseId),
       child: Consumer<ShowUsesProvider>(
