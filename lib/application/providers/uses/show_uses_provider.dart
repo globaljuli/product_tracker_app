@@ -5,10 +5,8 @@ import 'package:product_tracker_app/domain/models/uses/purchase_use.dart';
 class ShowUsesProvider with ChangeNotifier {
   final ServeUsesHelper _helper = ServeUsesHelper();
 
-  ShowUsesProvider({required int? purchaseId}) {
-    if (purchaseId != null) {
-      getUses(purchaseId: purchaseId);
-    }
+  ShowUsesProvider({required int purchaseId}) {
+    getUses(purchaseId: purchaseId);
   }
 
   final List<PurchaseUse> productUses = [];

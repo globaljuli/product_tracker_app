@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
+import 'package:product_tracker_app/domain/models/products/product.dart';
 
 class PurchaseUse {
   PurchaseUse({
     required this.id,
     required this.purchaseId,
-    required this.purchaseName,
+    required this.product,
     required this.useTypeId,
     required this.createdAt,
     required this.updatedAt,
@@ -14,7 +14,7 @@ class PurchaseUse {
 
   final int id;
   final int purchaseId;
-  final String purchaseName;
+  final Product product;
   final int useTypeId;
   final DateTime createdAt;
   final DateTime updatedAt;
@@ -27,7 +27,7 @@ class PurchaseUse {
   factory PurchaseUse.fromJson(Map<String, dynamic> json) => PurchaseUse(
         id: json["id"],
         purchaseId: json["purchase_id"],
-        purchaseName: json["purchase_name"] ?? '',
+        product: Product.fromJson(json["product"]),
         useTypeId: json["use_type_id"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
@@ -36,15 +36,9 @@ class PurchaseUse {
   Map<String, dynamic> toJson() => {
         "id": id,
         "product_id": purchaseId,
+        "product": product.toJson(),
         "use_type_id": useTypeId,
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
       };
-
-  TableRow toTableRow() {
-    return TableRow(children: [
-      Text(id.toString()),
-      Text(purchaseName),
-    ]);
-  }
 }

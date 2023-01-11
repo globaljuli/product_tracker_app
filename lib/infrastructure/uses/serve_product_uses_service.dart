@@ -17,40 +17,7 @@ class ServeProductUsesService {
         (r) => r,
       );
     } catch (e) {
-      return getMockUses();
+      return [];
     }
-  }
-
-  List<PurchaseUse> getMockUses() {
-    return [
-      PurchaseUse(
-          id: 1,
-          purchaseId: 2,
-          purchaseName: 'Xiaomi',
-          useTypeId: 1,
-          createdAt: DateTime.now(),
-          updatedAt: DateTime.now()),
-      PurchaseUse(
-          id: 2,
-          purchaseId: 2,
-          purchaseName: 'Xiaomi',
-          useTypeId: 1,
-          createdAt: DateTime.now(),
-          updatedAt: DateTime.now()),
-      PurchaseUse(
-          id: 3,
-          purchaseId: 2,
-          purchaseName: 'Xiaomi',
-          useTypeId: 1,
-          createdAt: DateTime.now(),
-          updatedAt: DateTime.now()),
-      PurchaseUse(
-          id: 4,
-          purchaseId: 2,
-          purchaseName: 'Xiaomi',
-          useTypeId: 1,
-          createdAt: DateTime.now(),
-          updatedAt: DateTime.now()),
-    ];
   }
 }
