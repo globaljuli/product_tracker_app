@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:product_tracker_app/application/providers/purchases/home/purchase_home_provider.dart';
+import 'package:product_tracker_app/presentation/pages/purchase_home/widgets/finish_purchase_button.dart';
 import 'package:product_tracker_app/presentation/pages/purchase_home/widgets/purchase_home_presenter.dart';
 import 'package:product_tracker_app/presentation/pages/purchase_home/widgets/register_use_button.dart';
 import 'package:product_tracker_app/presentation/pages/purchase_home/widgets/uses_historic_presenter.dart';
@@ -27,15 +28,44 @@ class PurchaseHomePage extends StatelessWidget {
               ..getLastSubmittedPurchase(),
             child: Consumer<PurchaseHomeProvider>(
               builder: (context, lastProductProvider, _) {
+                if (lastProductProvider.loading) {
+                  return const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 50.0),
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+
+                if (lastProductProvider.purchase == null) {
+                  return Center(
+                    child: Text("There's no purchase selected"),
+                  );
+                }
+
                 return Column(
                   children: [
                     PurchaseHomePresenter(),
-                    RegisterUseButton(),
-                    lastProductProvider.purchase == null
-                        ? Text("No purchases")
-                        : UsesHistoricPresenter(
-                            purchaseId: lastProductProvider.purchase!.id,
+                    lastProductProvider.purchase!.finishedAt == null
+                        ? RegisterUseButton()
+                        : SizedBox(),
+                    UsesHistoricPresenter(
+                      purchaseId: lastProductProvider.purchase!.id,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0,
+                        vertical: 20.0,
+                      ),
+                      child: Column(
+                        children: [
+                          Divider(thickness: 1.0),
+                          FinishPurchaseButton(
+                            purchase: lastProductProvider.purchase!,
                           ),
+                        ],
+                      ),
+                    ),
                   ],
                 );
               },

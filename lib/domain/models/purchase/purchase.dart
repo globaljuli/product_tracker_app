@@ -25,7 +25,7 @@ class Purchase {
   final int shopId;
   final double price;
   final dynamic discount;
-  final dynamic finishedAt;
+  final DateTime? finishedAt;
   final DateTime createdAt;
   final DateTime updatedAt;
   final Product product;
@@ -44,7 +44,9 @@ class Purchase {
         shopId: json["shop_id"],
         price: double.parse(json["price"].toString()),
         discount: json["discount"],
-        finishedAt: json["finished_at"],
+        finishedAt: json["finished_at"] == null
+            ? null
+            : DateTime.parse(json["finished_at"]),
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
         product: Product.fromJson(json["product"]),

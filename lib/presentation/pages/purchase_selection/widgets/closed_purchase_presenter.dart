@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:product_tracker_app/domain/models/purchase/purchase.dart';
 
-class PurchasePresenter extends StatelessWidget {
-  const PurchasePresenter({
+class ClosedPurchasePresenter extends StatelessWidget {
+  const ClosedPurchasePresenter({
     Key? key,
     required this.purchase,
     required this.onTap,
@@ -17,25 +17,41 @@ class PurchasePresenter extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary.withOpacity(0.15),
+        color: Theme.of(context).colorScheme.secondary.withOpacity(0.45),
         borderRadius: BorderRadius.circular(30.0),
       ),
       child: ListTile(
         onTap: () => onTap(),
         leading: Icon(Icons.sanitizer),
         title: Text('${purchase.product.brand} - ${purchase.product.name}'),
-        subtitle: Text(purchase.shop.name),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(purchase.shop.name),
+            _getClosedAtText(purchase.finishedAt),
+          ],
+        ),
         trailing: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('${purchase.price.toString()} €'),
             Text(
-              '(${purchase.pricePerUse}/use)',
+              '${purchase.pricePerUse}€/use',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Text(
+              '${purchase.price.toString()} €',
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
         ),
       ),
     );
+  }
+
+  _getClosedAtText(DateTime? finishedAt) {
+    if (finishedAt != null) {
+      return Text("~~Finished~~");
+    }
+    return SizedBox();
   }
 }
