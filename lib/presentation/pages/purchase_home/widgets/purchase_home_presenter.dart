@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:product_tracker_app/application/providers/purchases/home/purchase_home_provider.dart';
 import 'package:product_tracker_app/application/routing/routes.dart';
 import 'package:product_tracker_app/domain/models/purchase/purchase.dart';
-import 'package:product_tracker_app/presentation/pages/purchase_selection/widgets/purchase_presenter.dart';
+import 'package:product_tracker_app/presentation/pages/purchase_selection/widgets/open_purchase_presenter.dart';
 import 'package:provider/provider.dart';
 
 class PurchaseHomePresenter extends StatelessWidget {
@@ -16,7 +16,7 @@ class PurchaseHomePresenter extends StatelessWidget {
 
         return Column(
           children: [
-            PurchasePresenter(
+            OpenPurchasePresenter(
               purchase: purchase,
               onTap: () => Navigator.pushNamed(context, purchaseSelectionPage),
               height: 70,
