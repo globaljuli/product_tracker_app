@@ -46,7 +46,9 @@ class PurchaseHomePage extends StatelessWidget {
                 return Column(
                   children: [
                     PurchaseHomePresenter(),
-                    RegisterUseButton(),
+                    lastProductProvider.purchase!.finishedAt == null
+                        ? RegisterUseButton()
+                        : SizedBox(),
                     UsesHistoricPresenter(
                       purchaseId: lastProductProvider.purchase!.id,
                     ),
