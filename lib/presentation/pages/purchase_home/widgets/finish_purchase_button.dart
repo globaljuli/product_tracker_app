@@ -18,8 +18,9 @@ class FinishPurchaseButton extends StatelessWidget {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: Text("Warning!"),
-                  content: Text(
-                      "You're about to mark this purchase as finished on date now: ${_getDate()}. \n Do you want to continue?"),
+                  content: Text(purchase.finishedAt == null
+                      ? "You're about to mark this purchase as finished on date now: ${_getDate()}. \n Do you want to continue?"
+                      : "You're about to REACTIVATE this purchase and be able to register uses again. \n Do you want to continue?"),
                   actions: [
                     TextButton(
                         onPressed: () => Navigator.pop(context, false),
@@ -33,13 +34,14 @@ class FinishPurchaseButton extends StatelessWidget {
               false;
 
           if (res) {
-            //TODO: Notify el master provider
             Provider.of<PurchaseHomeProvider>(context, listen: false)
                 .getLastSubmittedPurchase();
           }
         },
         child: Text(
-          "Set purchase as finished",
+          purchase.finishedAt == null
+              ? "Set purchase as finished"
+              : "Reactivate this purchase",
         ),
       ),
     );
@@ -57,3 +59,7 @@ class FinishPurchaseButton extends StatelessWidget {
     return '${now.day}/${now.month}/${now.year}';
   }
 }
+
+class _ClosedPurchaseButton {}
+
+class _OpenPurchaseButton {}
