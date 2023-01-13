@@ -12,19 +12,6 @@ class PurchaseHomePresenter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<PurchaseHomeProvider>(
       builder: (context, lastProductProvider, _) {
-        if (lastProductProvider.loading) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(vertical: 50.0),
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        }
-
-        if (lastProductProvider.purchase == null) {
-          return Text("There's no purchases to show");
-        }
-
         final purchase = lastProductProvider.purchase as Purchase;
 
         return Column(
