@@ -5,16 +5,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PurchaseSelectionProvider with ChangeNotifier {
   final api = ServePurchasesService();
-  final List<Purchase> _activePurchases = [];
-  List<Purchase> get activePurchases => _activePurchases;
+  final List<Purchase> _openPurchases = [];
+  List<Purchase> get openPurchases => _openPurchases;
 
-  Future<List<Purchase>> getActivePurchases() async {
-    final res = await api.getPurchasesInfo();
+  Future<List<Purchase>> getOpenPurchases() async {
+    final res = await api.getOpenPurchases();
     res.fold((l) => [], (r) {
-      _activePurchases.addAll(r);
+      _openPurchases.addAll(r);
       notifyListeners();
     });
-    return _activePurchases;
+    return _openPurchases;
   }
 
   Future<void> selectPurchase({required Purchase purchase}) async {

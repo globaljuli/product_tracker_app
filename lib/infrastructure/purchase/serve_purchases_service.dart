@@ -4,9 +4,9 @@ import 'package:product_tracker_app/domain/models/purchase/purchase.dart';
 import 'package:product_tracker_app/infrastructure/models/basic_get_request.dart';
 
 class ServePurchasesService {
-  Future<Either<Failure, List<Purchase>>> getPurchasesInfo() async {
+  Future<Either<Failure, List<Purchase>>> getOpenPurchases() async {
     final res = await BasicGetRequest.make(
-        path: 'purchases',
+        path: 'purchases/open',
         onResolveOk: (response) {
           final List<Purchase> purchases = [];
           for (var purchase in response['response']) {

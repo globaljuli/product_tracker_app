@@ -14,10 +14,10 @@ class PurchaseSelectionPage extends StatelessWidget {
         title: Text("Select your purchase"),
       ),
       body: ChangeNotifierProvider<PurchaseSelectionProvider>(
-        create: (_) => PurchaseSelectionProvider()..getActivePurchases(),
+        create: (_) => PurchaseSelectionProvider()..getOpenPurchases(),
         child: Consumer<PurchaseSelectionProvider>(
           builder: (context, provider, _) {
-            final purchases = provider.activePurchases;
+            final purchases = provider.openPurchases;
             if (purchases.isEmpty) {
               return const Center(
                 child: CircularProgressIndicator(),
@@ -37,9 +37,10 @@ class PurchaseSelectionPage extends StatelessWidget {
                       return provider
                           .selectPurchase(purchase: purchases[index])
                           .then(
-                            (value) => Navigator.pushReplacementNamed(
+                            (value) => Navigator.pushNamedAndRemoveUntil(
                               context,
                               purchasePage,
+                              (Route<dynamic> route) => false,
                               arguments: purchases[index].id,
                             ),
                           );
